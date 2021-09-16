@@ -1,0 +1,57 @@
+server:
+  port: 9915
+
+# API Registry client configuration
+eureka:
+  instance:
+    metadata-map:
+      public: true
+      role: live
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8080/registry/eureka/
+
+# Configure Internal JWT handler
+sso:
+  jwt:
+    internal:
+      signature:
+        key:
+          type: ENV
+          value: SIG_SECRET_KEY
+
+# Spring health monitoring
+management:
+  health:
+    jms:
+     enabled: false
+
+# Enabling persistence
+spring:
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:greetingsdb;Mode=Oracle
+    platform: h2
+    continue-on-error: true
+  jpa:
+    generate-ddl: false
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/db.changelog-persistence.xml
+
+# Backbase security bypass
+backbase:
+  security:
+    csrf:
+      enabled: false
+    mtls:
+      enabled: false
+    public:
+      paths: /**
+
+# Enable logging
+logging:
+  level:
+    root: INFO
