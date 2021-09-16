@@ -8,6 +8,7 @@ eureka:
       public: true
       role: live
   client:
+    enabled: false
     serviceUrl:
       defaultZone: http://localhost:8080/registry/eureka/
 

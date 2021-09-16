@@ -15,20 +15,20 @@
     <changeSet id="initial_001" context="initial" author="jhost">
         <comment>create the coordinates table</comment>
         <createTable tableName="coordinates" remarks="Table to store all coordinates">
-            <column name="id" type="${int}">
+            <column name="id" type="int">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_coordinates"/>
             </column>
-            <column name="latitude" type="${double}">
+            <column name="latitude" type="double">
                 <constraints nullable="false"/>
             </column>
-            <column name="longitude" type="${double}">
+            <column name="longitude" type="double">
                 <constraints nullable="false"/>
             </column>
         </createTable>
 
         <comment>create the address table</comment>
     <createTable tableName="address">
-        <column name="id" type="${int}">
+        <column name="id" type="int">
             <constraints nullable="false" primaryKey="true" primaryKeyName="pk_address"/>
         </column>
         <column name="nameOrNumber" type="${varcharDataType}(50)">
@@ -50,7 +50,7 @@
 
         <comment>create the locations table</comment>
         <createTable tableName="locations" remarks="Table to store all the locations">
-            <column name="id" type="${int}">
+            <column name="id" type="int">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="pk_locations"/>
             </column>
             <column name="name" type="${varcharDataType}(50)" remarks="Name">
@@ -59,10 +59,10 @@
             <column name="type" type="${varcharDataType}(50)" remarks="Type">
                 <constraints nullable="false"/>
             </column>
-            <column name="fk_coordinates" type="${int}">
+            <column name="fk_coordinates" type="int">
                 <constraints nullable="false" foreignKeyName="pk_coordinates"/>
             </column>
-            <column name="fk_address" type="${int}">
+            <column name="fk_address" type="int">
                 <constraints nullable="false" foreignKeyName="pk_address"/>
             </column>
         </createTable>
