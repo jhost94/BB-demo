@@ -1,46 +1,35 @@
-package com.backbase.training.domain;
+package com.backbase.training.model;
 
-import javax.persistence.*;
 
-@Entity
-@Table(name = "address")
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Address {
 
-    @Id
-    @Column(name = "id")
-    private String id;
+    @JsonProperty("nameOrNumber")
+    private String nameOrNumber;
 
-//    @Column(name = "nameOrNumber")
-//    private String nameOrNumber;
-
-    @Column(name = "street")
+    @JsonProperty("street")
     private String street;
 
-    @Column(name = "town")
+    @JsonProperty("town")
     private String town;
 
-    @Column(name = "country")
+    @JsonProperty("country")
     private String country;
 
-    @Column(name = "postcode")
+    @JsonProperty("postcode")
     private String postCode;
 
 
-    public String getId() {
-        return id;
+    public String getNameOrNumber() {
+        return nameOrNumber;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setNameOrNumber(String nameOrNumber) {
+        this.nameOrNumber = nameOrNumber;
     }
-
-//    public String getNameOrNumber() {
-//        return nameOrNumber;
-//    }
-//
-//    public void setNameOrNumber(String nameOrNumber) {
-//        this.nameOrNumber = nameOrNumber;
-//    }
 
     public String getStreet() {
         return street;
@@ -73,4 +62,5 @@ public class Address {
     public void setPostCode(String postCode) {
         this.postCode = postCode;
     }
+
 }

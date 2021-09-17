@@ -8,38 +8,37 @@ public class Coordinate {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue
-    private int id;
+    private String id;
 
     @Column(name = "latitude")
-    private double latitude;
+    private String latitude;
 
     @Column(name = "longitude")
-    private double longitude;
+    private String longitude;
 
 
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public double getLatitude() {
+    public String getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(double latitude) {
+    public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
 
-    public double getLongitude() {
+    public String getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(double longitude) {
+    public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
 }

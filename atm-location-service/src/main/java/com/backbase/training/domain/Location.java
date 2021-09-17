@@ -8,8 +8,7 @@ public class Location {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue
-    private int id;
+    private String id;
 
     @Column(name = "name")
     private String name;
@@ -17,21 +16,21 @@ public class Location {
     @Column(name = "type")
     private String type;
 
-    @ManyToOne
-    @JoinColumn(foreignKey = @ForeignKey(name = "fk_coordinates" ))
+    @OneToOne
+    @JoinColumn(name = "fk_coordinates", foreignKey = @ForeignKey(name = "fk_coordinates" ))
     private Coordinate coordinate;
 
     @ManyToOne
-    @JoinColumn(foreignKey = @ForeignKey(name = "fk_address"))
+    @JoinColumn(name = "fk_address", foreignKey = @ForeignKey(name = "fk_address"))
     private Address address;
 
 
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
